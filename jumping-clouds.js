@@ -1,4 +1,5 @@
 // JUMPING CLOUDS PROBLEM from HackerRank
+// https://www.hackerrank.com/challenges/jumping-on-the-clouds-revisited/problem
 // using a cyclical linked list
 function jumpingOnClouds(c, k) {
     function Node(val) {
