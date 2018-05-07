@@ -1,4 +1,4 @@
-// MIN STACK DATASTRUCTURE PROBLEM
+// MIN STACK DATA STRUCTURE PROBLEM
 // Solved using a stack made of nodes
 function MinStack() {
     this.head = null;
