@@ -14,24 +14,19 @@ Example:
     i ate noodles for dinner tonight
     i ate noodles ford inner to night
     i ate noodles ford inner tonight
-
 """
 
-vocab = {'i', 'a', 'ten', 'oodles', 'ford', 'inner', 'to', 'night',
-         'ate', 'noodles', 'for', 'dinner', 'tonight'}
-
+vocab = {'i', 'a', 'ten', 'oodles', 'ford', 'inner', 'to', 'night', 'ate', 'noodles', 'for', 'dinner', 'tonight'}
 
 def parse(phrase, vocab):
-    """Break a string into words.
-    
-    Input:
-        - string of words without space breaks
-        - vocabulary (set of allowed words)
-
-    Output:
-        set of all possible ways to break this down, given a vocab
-    """
-
+    store = set()
+    for word in vocab:
+        if phrase == word:
+            store.add(word)
+    elif phrase.startswith(word):
+        word_and_rest = { word + ' ' + parsed for parsed in parse(phrase[len(word):], vocab) }
+        store.update(word_and_rest)
+    return store
 
 if __name__ == '__main__':
     import doctest
