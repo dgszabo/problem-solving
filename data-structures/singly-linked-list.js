@@ -102,3 +102,28 @@ SinglyLinkedList.prototype.set = function(ind, val) {
     cur.val = val;
     return true;
 }
+
+// __INSERT - adding a new node at a specific index of the list
+SinglyLinkedList.prototype.__insert = function(ind, val) {
+    if(ind > this.length) return false;
+    
+    let newNode = new Node(val);
+
+    if(ind === 0) {
+        newNode.next = this.head;
+    } else {
+        let cur = this.head;
+        ind--;
+        while(ind) {
+            cur = cur.next;
+            ind--;
+        }
+        newNode.next = cur.next;
+        cur.next = newNode;
+
+        if(cur === this.tail) this.tail = newNode;
+    }
+    this.length++;
+
+    return true;
+}
