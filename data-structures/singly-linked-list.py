@@ -60,4 +60,21 @@ class Singly_Linked_List:
         
         return self
 
+    # SHIFT - removing a nove from the beginning of the list
+    def shift(self):
+        if(self.length == 0):
+            return None
+        
+        shifted_node = self.head
+        
+        if(self.length == 1):
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+        
+        self.length -= 1
+        
+        return shifted_node
+
     
