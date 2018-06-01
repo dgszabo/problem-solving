@@ -24,3 +24,27 @@ class Singly_Linked_List:
         
         self.length += 1
         return self
+
+    # POP - removing a nove from the end of the list
+    def pop(self):
+        if(self.length == 0):
+            return None
+        
+        cur = self.head
+        
+        if(self.length == 1):
+            popped_node = cur
+            self.head = None
+            self.tail = None
+        else:
+            while(cur.next != self.tail):
+                cur = cur.next
+            popped_node = cur.next
+            cur.next = None
+            self.tail = cur
+        
+        self.length -= 1
+        
+        return popped_node
+
+    
