@@ -11,7 +11,7 @@ function SinglyLinkedList(head = null, tail = null, length = 0) {
     this.length = length;
 }
 
-// PUSH
+// PUSH - adding new node to the end of the list
 SinglyLinkedList.prototype.push = function(val) {
     let newNode = new Node(val)
     if(this.length === 0) {
@@ -21,4 +21,25 @@ SinglyLinkedList.prototype.push = function(val) {
     }
     this.tail = newNode;
     this.length++;
+}
+
+// POP - removing a nove from the end of the list
+SinglyLinkedList.prototype.pop = function() {
+    if(this.length === 0) return;
+    
+    let poppedNode = this.tail;
+    let cur = this.head;
+    
+    if(this.length === 1) {
+      this.head = null;  
+    } else {
+      while(cur.next !== null && cur.next !== this.tail) {
+        cur = cur.next;
+      }
+    }
+    
+    this.tail = cur;
+    cur.next = null;
+    this.length--;
+    return poppedNode;
 }
