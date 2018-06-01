@@ -154,3 +154,28 @@ SinglyLinkedList.prototype.remove = function(ind) {
  
     return removedNode;
 }
+
+// REVERSE - reverses all the nodes in the list
+SinglyLinkedList.prototype.reverse = function() {
+    let cur = this.head;
+    let next = this.head.next;
+    for(let i = 0; i < this.length; i++) {
+        if(cur === this.head) {
+            let prev = cur;
+            cur.next = null;
+        } else {
+            next = cur.next;
+            cur.next = prev;
+        }
+        prev = cur;
+        cur = next;
+        if(next) {
+            next = next.next;  
+        }
+    }
+    let head = this.head;
+    this.head = this.tail;
+    this.tail = head;
+    
+    return this;
+}
