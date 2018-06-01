@@ -43,3 +43,15 @@ SinglyLinkedList.prototype.pop = function() {
     this.length--;
     return poppedNode;
 }
+
+// UNSHIFT - adding new node to the beginning of the list
+SinglyLinkedList.prototype.unshift = function(val) {
+    let newNode = new Node(val)
+    if(this.length === 0) {
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+    }
+    this.head = newNode;
+    this.length++;
+}
