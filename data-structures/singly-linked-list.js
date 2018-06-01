@@ -127,3 +127,30 @@ SinglyLinkedList.prototype.__insert = function(ind, val) {
 
     return true;
 }
+
+// REMOVE - removes a node at a specific index of the list
+SinglyLinkedList.prototype.remove = function(ind) {
+    if(ind >= this.length) return;
+
+    let removedNode;
+    let cur = this.head;
+    ind--;
+    while(ind > 0) {
+        cur = cur.next;
+        ind--;
+    }
+
+    if(cur === this.head) {
+        removedNode = this.head;
+        this.head = this.head.next;
+    } else if(cur.next === this.tail) {
+        removedNode = this.tail;
+        this.tail = cur;
+    } else {
+        removedNode = cur.next;
+        cur.next = cur.next.next;
+    }
+    this.length--;
+ 
+    return removedNode;
+}
