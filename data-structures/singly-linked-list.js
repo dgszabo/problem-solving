@@ -15,12 +15,14 @@ function SinglyLinkedList(head = null, tail = null, length = 0) {
 SinglyLinkedList.prototype.push = function(val) {
     let newNode = new Node(val)
     if(this.length === 0) {
-      this.head = newNode;
+        this.head = newNode;
     } else {
-      this.tail.next = newNode;
+        this.tail.next = newNode;
     }
     this.tail = newNode;
     this.length++;
+
+    return this;
 }
 
 // POP - removing a nove from the end of the list
@@ -31,11 +33,11 @@ SinglyLinkedList.prototype.pop = function() {
     let cur = this.head;
     
     if(this.length === 1) {
-      this.head = null;  
+        this.head = null;  
     } else {
-      while(cur.next !== null && cur.next !== this.tail) {
-        cur = cur.next;
-      }
+        while(cur.next !== null && cur.next !== this.tail) {
+            cur = cur.next;
+        }
     }
     
     this.tail = cur;
@@ -48,12 +50,14 @@ SinglyLinkedList.prototype.pop = function() {
 SinglyLinkedList.prototype.unshift = function(val) {
     let newNode = new Node(val)
     if(this.length === 0) {
-      this.tail = newNode;
+        this.tail = newNode;
     } else {
-      newNode.next = this.head;
+        newNode.next = this.head;
     }
     this.head = newNode;
     this.length++;
+
+    return this;
 }
 
 // SHIFT - removing a nove from the beginning of the list
@@ -63,12 +67,25 @@ SinglyLinkedList.prototype.shift = function() {
     let shiftedNode = this.head;
 
     if(this.length === 1) {
-      this.tail = null;
-      this.head = null;
+        this.tail = null;
+        this.head = null;
     } else {
-      this.head = this.head.next;
+        this.head = this.head.next;
     }
     this.length--;
     
     return shiftedNode.val;
+}
+
+// __GET - get the node from a specific index
+SinglyLinkedList.prototype.__get = function(ind) {
+    if(this.length <= ind) return null;
+
+    let cur = this.head;
+    while(ind) {
+        cur = cur.next;
+        ind--;
+    }
+
+    return cur;
 }
