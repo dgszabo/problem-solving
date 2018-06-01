@@ -11,3 +11,16 @@ class Singly_Linked_List:
         self.tail = tail
         self.length = length
 
+    # PUSH - adding new node to the end of the list
+    def push(self, val):
+        new_node = Node(val)
+        
+        if(self.length == 0):
+            self.head = new_node
+        
+        if(self.tail):
+            self.tail.next = new_node
+        self.tail = new_node
+        
+        self.length += 1
+        return self
