@@ -55,3 +55,20 @@ SinglyLinkedList.prototype.unshift = function(val) {
     this.head = newNode;
     this.length++;
 }
+
+// SHIFT - removing a nove from the beginning of the list
+SinglyLinkedList.prototype.shift = function() {
+    if(this.length === 0) return;
+    
+    let shiftedNode = this.head;
+
+    if(this.length === 1) {
+      this.tail = null;
+      this.head = null;
+    } else {
+      this.head = this.head.next;
+    }
+    this.length--;
+    
+    return shiftedNode.val;
+}
