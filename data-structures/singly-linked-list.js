@@ -89,3 +89,16 @@ SinglyLinkedList.prototype.__get = function(ind) {
 
     return cur;
 }
+
+// SET - set the node's value at a specific index to given value
+SinglyLinkedList.prototype.set = function(ind, val) {
+    if(this.length <= ind) return false;
+
+    let cur = this.head;
+    while(ind) {
+        cur = cur.next;
+        ind--;
+    }
+    cur.val = val;
+    return true;
+}
