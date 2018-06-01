@@ -47,4 +47,17 @@ class Singly_Linked_List:
         
         return popped_node
 
+    # UNSHIFT - adding new node to the beginning of the list
+    def unshift(self, val):
+        new_node = Node(val)
+        
+        if(self.length == 0):
+            self.tail = new_node
+        
+        new_node.next = self.head
+        self.head = new_node
+        self.length += 1
+        
+        return self
+
     
