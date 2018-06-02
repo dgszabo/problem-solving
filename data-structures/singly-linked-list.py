@@ -77,4 +77,15 @@ class Singly_Linked_List:
         
         return shifted_node
 
-    
+    # GET - get the node from a specific index
+    def get(self, ind):
+        if(ind >= self.length):
+            return None
+        
+        cur = self.head
+        
+        while(ind):
+            cur = cur.next
+            ind -= 1
+            
+        return cur.val
