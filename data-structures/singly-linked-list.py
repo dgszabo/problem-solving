@@ -131,3 +131,32 @@ class Singly_Linked_List:
         self.length += 1
         
         return True
+
+    # REMOVE - removes a node at a specific index of the list
+    def remove(self, ind):
+        if(ind >= self.length):
+            return None
+        
+        if(self.length == 1):
+            removed_node = self.head
+            self.head = None
+            self.tail = None
+        else:
+            if(ind == 0):
+                removed_node = self.head
+                self.head = self.head.next
+            else:
+                cur = self.head
+                while(ind - 1):
+                    cur = cur.next
+                    ind -= 1
+                removed_node = cur.next
+                cur.next = cur.next.next
+                if(cur.next == self.tail):
+                    self.tail = cur
+            
+        self.length -= 1
+        
+        return removed_node
+
+    
