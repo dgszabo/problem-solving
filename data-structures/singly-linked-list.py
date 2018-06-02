@@ -159,4 +159,33 @@ class Singly_Linked_List:
         
         return removed_node
 
-    
+    # REVERSE - reverses all the nodes in the list
+    def reverse(self):
+        if(self.length == 0):
+            return None
+        
+        if(self.length == 1):
+            return self
+        
+        first = self.head
+        second = self.head.next
+        step = self.length - 1
+        
+        while(step):
+            for num in range(1, step):
+                first = first.next
+                second = second.next
+            
+            second.next = first
+            
+            first = self.head
+            second = self.head.next
+            step -= 1
+            
+        first.next = None
+        
+        tail = self.tail
+        self.tail = self.head
+        self.head = tail
+        
+        return self
