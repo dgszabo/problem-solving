@@ -89,3 +89,20 @@ class Singly_Linked_List:
             ind -= 1
             
         return cur.val
+
+    # SET - set the node's value at a specific index to given value
+    def set(self, ind, val):
+        if(ind >= self.length):
+            return False
+        
+        cur = self.head
+        
+        while(ind):
+            cur = cur.next
+            ind -= 1
+            
+        cur.val = val
+        
+        return True
+
+    
