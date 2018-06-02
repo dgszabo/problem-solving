@@ -105,4 +105,29 @@ class Singly_Linked_List:
         
         return True
 
-    
+    # __INSERT - adding a new node at a specific index of the list
+    def insert(self, ind, val):
+        if(ind > self.length):
+            return False
+        
+        new_node = Node(val)
+        
+        if(ind == self.length):
+            self.tail.next = new_node
+            self.tail = new_node
+        elif(ind == 0):
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            cur = self.head
+            
+            while(ind - 1):
+                cur = cur.next
+                ind -= 1
+            
+            new_node.next = cur.next
+            cur.next = new_node
+        
+        self.length += 1
+        
+        return True
