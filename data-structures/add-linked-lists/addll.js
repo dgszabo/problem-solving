@@ -1,0 +1,40 @@
+class Node {
+  constructor(data, next) {
+    this.data = data;
+    this.next = next || null;
+  }
+
+  asRevString() {
+    const out = [];
+    let n = this;
+
+    while (n) {
+      out.push(n.data);
+      n = n.next;
+    }
+
+    return out.reverse().join("");
+  }
+}
+
+function addLinkedLists(l1, l2) {
+  // TODO :)
+}
+
+let l1, l2;
+
+l1 = new Node(1);
+l2 = new Node(2);
+console.log(addLinkedLists(l1, l2).asRevString(), "3");
+
+l1 = new Node(3, new Node(2, new Node(1)));
+l2 = new Node(6, new Node(5, new Node(4)));
+console.log(addLinkedLists(l1, l2).asRevString(), "579");
+
+l1 = new Node(4, new Node(4, new Node(1)));
+l2 = new Node(6, new Node(5, new Node(4)));
+console.log(addLinkedLists(l1, l2).asRevString(), "600");
+
+l1 = new Node(3, new Node(2, new Node(1)));
+l2 = new Node(9, new Node(8));
+console.log(addLinkedLists(l1, l2).asRevString(), "212");
