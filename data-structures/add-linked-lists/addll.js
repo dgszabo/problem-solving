@@ -19,20 +19,33 @@ class Node {
 
 function addLinkedLists(l1, l2) {
   function getNum(node) {
-    let str = '';
+      let str = '';
 
-    while(node) {
-        str += node.data;
-        node = node.next;
-    }
+      while(node) {
+          str += node.data;
+          node = node.next;
+      }
 
-    return str;
+      return str;
   }
 
   let numStr1 = getNum(l1).split('').reverse().join('');
   let numStr2 = getNum(l2).split('').reverse().join('');
 
   return new Node(parseInt(numStr1) + parseInt(numStr2));
+
+  let last;
+  let newNumStr = (parseInt(numStr1) + parseInt(numStr2)).toString();
+
+  for(let i = newNumStr.length - 1; i >= 0; i--) {
+      let newNode = new Node(parseInt(newNumStr[i]));
+      if(last) {
+          newNode.next = last;
+      }
+      last = newNode;
+  }
+
+  return last;
 }
 
 let l1, l2;
