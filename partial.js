@@ -6,7 +6,7 @@ function partial(func) {
     function inner() {
         args = [...args, ...arguments]
         if(args.length >= func.length) {
-            return func(...args.slice(0, func.length));
+            return func(...args);
         }
         else return inner;
     }
