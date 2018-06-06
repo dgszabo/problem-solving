@@ -16,7 +16,9 @@ class CircularArray {
 	rotate(increment) { 
         let tempArr = [...this.arr]
         for(let i = 0; i < this.arr.length; i++) {
-            tempArr[i] = this.arr[(i + increment) % this.arr.length];
+            let idx = (i + increment) % this.arr.length;
+            if(idx >= 0) tempArr[i] = this.arr[idx];
+            else tempArr[i] = this.arr[this.arr.length + idx];
         }
         this.arr = [...tempArr];
 	}
