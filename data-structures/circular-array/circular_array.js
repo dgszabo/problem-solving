@@ -24,3 +24,29 @@ class CircularArray {
         console.log(this.arr.join('\n'));
 	}
 }
+
+// in O(1) rotational time and O(1) rotational space complexity
+class CircularArray {
+	constructor() { 
+        this.arr = [];
+        this.start = 0;
+	}
+
+	addItem(item) { 
+        this.arr.push(item);
+	}
+	getByIndex(index) { 
+        if(index >= 0 && index < this.arr.length) return this.arr[(index + this.start) % this.arr.length];
+        else return `There is no element on index ${index}!`;
+	}
+	rotate(increment) { 
+        this.start = increment >= 0 ? increment % this.arr.length : this.arr.length + (increment % this.arr.length);
+	}
+	printArray() { 
+        for(let i = 0; i < this.arr.length; i++) {
+            let idx = (this.start + i) % this.arr.length;
+                console.log(this.arr[idx]);
+        }
+	}
+}
+
