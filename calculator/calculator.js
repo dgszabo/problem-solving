@@ -12,10 +12,10 @@ function calculator(str) {
     let acc = +arr[arr.length - 1];
     
     for(let j = arr.length - 2; j >= 0; j -= 2) {
-        if(arr[j - 1] === '+') acc += +arr[j];
-        if(arr[j - 1] === '-') acc -= +arr[j];
-        if(arr[j - 1] === '*') acc *= +arr[j];
-        if(arr[j - 1] === '/') acc /= +arr[j];
+        if(arr[j - 1] === '+') acc = +arr[j] + acc;
+        if(arr[j - 1] === '-') acc = +arr[j] - acc;
+        if(arr[j - 1] === '*') acc = +arr[j] * acc;
+        if(arr[j - 1] === '/') acc = +arr[j] / acc;
     }
 
     return acc;
