@@ -52,7 +52,27 @@ function makeBoard(boardString) {
 
 function find(board, word) {
   /** Can word be found in board? */
-  // TODO
+  for(let i = 0; i < board.length; i++) {
+    for(let j = 0; j < board[0].length; j++) {
+      if(board[i][j] === word[0] && wordStep(word, board, i, j, new Set())) return true;
+    }
+  }
+  return false;
+}
+
+function wordStep(word, board, x, y, visited) {
+  // base case
+  if(word.length === 0) return true;
+  // fail case
+  if(board[x][y] !== word[0] || visited.has(x + '-' + y)) return false;
+  // add to visited
+  visited = new Set([ ...Array.from(visited), x + '-' + y ]);
+  return (
+    x > 0 && wordStep(word.slice(1), board, x - 1, y, visited) ||
+    x < board[0].length - 1 && wordStep(word.slice(1), board, x + 1, y, visited) ||
+    y > 0 && wordStep(word.slice(1), board, x, y - 1, visited) ||
+    y < board.length - 1 && wordStep(word.slice(1), board, x, y + 1, visited)
+  );
 }
 
 // EXAMPLE TEST
