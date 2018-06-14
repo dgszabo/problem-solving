@@ -15,3 +15,26 @@ function maxProductSubarray(arr){
   
     return max;
 }
+
+// O(n) runtime solution
+function maxProductSubarray(arr){
+    let start = 0;
+    let end = 0;
+    let cur = arr[0];
+    let max = cur;
+  
+    while(end < arr.length) {
+        if(start === end || (end < arr.length - 1 && arr[end] !== 0)) {
+            end++;
+            if(arr[end] !== undefined) cur *= arr[end];
+        } else if(arr[start] === 0) {
+            start++;
+            cur = arr[start];
+        } else {
+            cur /= arr[start];
+            start++;
+        }
+        if(cur > max) max = cur;
+    }
+    return max;
+  }
