@@ -28,3 +28,20 @@ function groupAnagrams(arr){
     }
     return outArr
 }
+
+// O(n) space
+// 0(n log n) time
+function groupAnagrams(arr){
+    // O(n) space (multiple times n)
+    // 0(n2) time
+    let wordObj = {};
+    
+    for(let i = 0; i < arr.length; i++) {
+      let sorted = arr[i].split('').sort().join('');
+        if(!wordObj[sorted]) wordObj[sorted] = [];
+        wordObj[sorted].push(arr[i]);
+    }
+    
+    return Object.values(wordObj);
+}
+  
