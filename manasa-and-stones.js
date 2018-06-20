@@ -20,3 +20,14 @@ function stones(n, a, b) {
     
     return countSet;
 }
+
+// O(n) time complexity solution
+function stones(n, a, b) {
+    let countSet = new Set()
+    
+    for(let i = 0; i < n; i++) {
+        countSet.add(i * Math.max(a,b) + (n - i - 1) * Math.min(a,b));
+    }
+    
+    return Array.from(countSet);
+}
