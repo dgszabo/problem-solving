@@ -1,4 +1,4 @@
-// COMMON CHILD PROBLEM
+// COMMON CHILD ALGO PROBLEM
 // HackerRank https://www.hackerrank.com/challenges/common-child/problem
 function commonChild(s1, s2) {
     let common = [];
