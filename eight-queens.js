@@ -28,20 +28,20 @@ function eightQueens(positions = [], y = 0, results = [], limit = 1) {
         
         // and continue search with new last position
         let newY = positions.pop() + 1;
-        return eightQueens([...positions], newY, results, limit);
+        return eightQueens(positions, newY, results, limit);
     }
 
     // if the position is out of range roll back to last line
     if(y >= 8) {
         let newY = positions.pop() + 1;
-        return eightQueens([...positions], newY, results, limit);
+        return eightQueens(positions, newY, results, limit);
     } else {
         // if the position in the line validates continue to next line, else try next position
         if(validatePosition(positions, y)) {
             positions.push(y);
-            return eightQueens([...positions], 0, results, limit);
+            return eightQueens(positions, 0, results, limit);
         } else {
-            return eightQueens([...positions], y + 1, results, limit);
+            return eightQueens(positions, y + 1, results, limit);
         }    
     }
 }
@@ -56,3 +56,5 @@ function compileResults() {
 
     return allConfigurations;
 }
+
+console.log(compileResults());
