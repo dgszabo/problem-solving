@@ -17,7 +17,7 @@ function validatePosition(arr, y) {
 }
 
 function eightQueens(positions = [], y = 0, results = [], limit = 1) {
-    // return results when exceed the end of the first line
+    // return results when exceed the limit
     if(positions.length === 0 && y === limit) {
         return results;
     }
@@ -47,7 +47,7 @@ function eightQueens(positions = [], y = 0, results = [], limit = 1) {
 }
 
 // result compiler function to circumvent exceeding max stack size issue
-function compile() {
+function compileResults() {
     let allConfigurations = [];
     
     for(let i = 0; i < 8; i++) {
