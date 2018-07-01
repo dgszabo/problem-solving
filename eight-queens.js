@@ -16,14 +16,11 @@ function validatePosition(arr, y) {
     return true;
 }
 
-function eightQueens(positions = [], y = 0, results = []) {
+function eightQueens(positions = [], y = 0, results = [], limit = 1) {
     // return results when exceed the end of the first line
-    if(positions.length === 0 && y === 8) {
+    if(positions.length === 0 && y === limit) {
         return results;
     }
-    // if(results.length === 2) {
-    //     return results;
-    // }
 
     // if the positions array is 8 long, add it to the results array
     if(positions.length === 8) {
@@ -31,22 +28,31 @@ function eightQueens(positions = [], y = 0, results = []) {
         
         // and continue search with new last position
         let newY = positions.pop() + 1;
-        return eightQueens([...positions], newY, results);
+        return eightQueens([...positions], newY, results, limit);
     }
 
     // if the position is out of range roll back to last line
     if(y >= 8) {
         let newY = positions.pop() + 1;
-        return eightQueens([...positions], newY, results);
+        return eightQueens([...positions], newY, results, limit);
     } else {
         // if the position in the line validates continue to next line, else try next position
         if(validatePosition(positions, y)) {
             positions.push(y);
-            return eightQueens([...positions], 0, results);
+            return eightQueens([...positions], 0, results, limit);
         } else {
-            return eightQueens([...positions], y + 1, results);
+            return eightQueens([...positions], y + 1, results, limit);
         }    
     }
 }
 
-console.log(eightQueens());
+// result compiler function to circumvent exceeding max stack size issue
+function compile() {
+    let allConfigurations = [];
+    
+    for(let i = 0; i < 8; i++) {
+        allConfigurations.push(...eightQueens([], i, [], i + 1));
+    }
+
+    return allConfigurations;
+}
