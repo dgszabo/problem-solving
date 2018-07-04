@@ -13,5 +13,6 @@ function getBinaryTreeHeight(root, height = 0) {
         return height;
     }
 
+    // get back the largest height (depth) found in the children nodes
     return Math.max(getBinaryTreeHeight(root.left, height + 1), getBinaryTreeHeight(root.right, height + 1));
 }
