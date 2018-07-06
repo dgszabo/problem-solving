@@ -32,10 +32,12 @@ function getMaxHeightPath(root = null, arr = [], height) {
         return false;
     }
 
-    // recursive call
+    // rebinding and recursive call
+    arr = arr.concat([root.val]);
+
     return (
-        getMaxHeightPath(root.left, arr.concat([root.val]), height) ||
-        getMaxHeightPath(root.right, arr.concat([root.val]), height)
+        getMaxHeightPath(root.left, arr, height) ||
+        getMaxHeightPath(root.right, arr, height)
     )
 }
 
