@@ -44,3 +44,65 @@ function getConnectedFileds(matrix, position = [0,0], color = matrix[position[0]
 //   [1,2,3,2],
 //   [3,2,2,2]
 // ]);
+
+// iterative solution
+// not bound by recursion depth limit
+function maxConnectedIterative(matrix) {
+  let max = 0;
+  let seenSet = new Set();
+
+  for(let i = 0; i < matrix.length; i++) {
+      for(let j = 0; j < matrix[i].length; j++) {
+          if(!seenSet.has(`${i}-${j}`)) {
+              // create variables add position to them
+              let color = matrix[i][j];
+              let stack = [[i,j]];
+              let connected = new Set();
+
+              // add the neighbours to the stack
+              while(stack.length > 0) {
+                  let cur = stack.pop();
+                  if(!connected.has(`${cur[0]}-${cur[1]}`) && matrix[cur[0], cur[1]] === color) {
+                      // add the current position to sets
+                      connected.add(`${cur[0]}-${cur[1]}`);
+                      seenSet.add(`${cur[0]}-${cur[1]}`);
+
+                      // push the valid neighbours to the stack
+                      if(matrix[cur[0] - 1]) {
+                          stack.push([cur[0] - 1, cur[1]]);
+                      }
+                      if(matrix[cur[0]][cur[1] + 1]) {
+                          stack.push([cur[0], cur[1] + 1]);
+                      }
+                      if(matrix[cur[0] + 1]) {
+                          stack.push([cur[0] + 1, cur[1]]);
+                      }
+                      if(matrix[cur[0]][cur[1] - 1]) {
+                          stack.push([cur[0], cur[1] - 1]);
+                      }
+                  }
+              }
+
+              // overwrite max if necessarry
+              if(connected.size > max) {
+                  max = connected.size;
+              }
+          }
+      }
+  }
+
+  return max;
+}
+
+// maxConnected([
+//   [1,1,2,3],
+//   [1,2,3,2],
+//   [3,2,2,2]
+// ]); // 5
+
+// maxConnected([
+//   [1,1,2,3],
+//   [1,2,3,2],
+//   [3,2,2,2],
+//   [3,3,2,2]
+// ]); // 7
