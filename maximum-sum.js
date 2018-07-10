@@ -1,5 +1,6 @@
 // MAXIMUM SUM ARRAY MANIPULATION PROBLEM
 // HackerRank https://www.hackerrank.com/challenges/maximum-subarray-sum/problem
+// O(n2) time complexity
 function maximumSum(a, m) {
   let max = 0;
 
