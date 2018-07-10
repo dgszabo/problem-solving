@@ -16,3 +16,23 @@ function pairs(k, arr) {
 
   return pairCount;
 }
+
+// O(n log n) time complexity, but O(n) space complexity
+function pairs(k, arr) {
+  // create paircount, left and right pointers
+  let pairCount = 0;
+  let lookingFor = new Set();
+
+  // sort the array to make sure we compare the right elements
+  arr.sort((a,b) => a - b);
+
+  // build the lookingFor set and check it each time
+  for(let i = 0; i < arr.length; i++) {
+      lookingFor.add(arr[i] + k);
+      if(lookingFor.has(arr[i])) {
+          pairCount++;
+      }
+  }
+
+  return pairCount;
+}
