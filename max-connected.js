@@ -1,4 +1,18 @@
 // MAX CONNECTED 2D MATRIX PROBLEM
+
+/*
+We have a 2D matrix with each cell having a color. We would like to find out how long is the longest line of cells that have the same color and are connected. Diagonals don't count as connection.
+
+Example: (see also the pic below)
+[[1, 1, 3, 3],
+ [1, 2, 2, 2],
+ [3, 2, 1, 2]]
+The solution is 5, because color 2 cells at 2-1, 1-1, 1-2, 1-3, and 2-3 are the longest line of cells of the same color that are connected.
+
+Hint: we are looking for a recursive algorithm to find all the connected cells of the same color for any target cell and an iterative algorithm that iterates through all the cells of the matrix (so we don't miss any cell).
+*/
+
+// recursive solution
 function maxConnected(matrix) {
   let max = 0;
   let seenSet = new Set();
@@ -44,6 +58,16 @@ function getConnectedFileds(matrix, position = [0,0], color = matrix[position[0]
 //   [1,2,3,2],
 //   [3,2,2,2]
 // ]);
+
+/*
+Uh-oh-au! We tried to run the code you wrote on Tuesday, but with certain inputs we encountered the following error: "RangeError: Maximum call stack size exceeded". This may be because our inputs were rather large 10,000 x 10,000 cell 2D matrices and recursion has an approx. 10-20 thousand iteration limit.
+
+Your task is to rewrite the same function iteratively, so that it would be able to handle our large inputs. (for more info on the original challenge, see Tuesday's post)
+
+Hint: you can simulate an almost limitless call stack by using an array (and pushing elements on it and popping elements off it) and a while loop with some clever logic.
+
+Good luck!
+*/
 
 // iterative solution
 // not bound by recursion depth limit
