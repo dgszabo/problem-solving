@@ -1,5 +1,6 @@
 // INVERT BINARY TREE TREE MANIPULATION PROBLEM
 // LeetCode https://leetcode.com/problems/invert-binary-tree/description/
+// iterative solution
 function invertTree(root) {
   let bfsStore = [root];
 
@@ -25,6 +26,32 @@ function invertTree(root) {
   return root;
 };
 
+// recursive solution
+function invertTree(root) {
+  // helper recursion to invert the tree
+  function inverter(node) {
+      // base case if the branch has ended
+      if(node === null) {
+          return;
+      }
+
+      // reassign the sides if the node is not a branch-end
+      let left = node.left;
+      node.left = node.right;
+      node.right = left;
+
+      // call helper again
+      inverter(node.right);
+      inverter(node.left);
+  }
+
+  inverter(root);
+
+  return root;
+};
+
+
+// node constructor and example
 function Node(val) {
   this.val = val;
   this.left = this.right = null;
