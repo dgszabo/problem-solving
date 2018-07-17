@@ -43,7 +43,7 @@ function findDuplicate(arr, lowBound = 1, highBound = arr.length - 1) {
   }
 
   // depending on whether the count indicates that the duplicate is above midPoint recurse up or down
-  if(count >= (highBound - lowBound + 1.5) / 2) {
+  if(count >= highBound - midPoint + 1) {
       return findDuplicate(arr, midPoint + 1, highBound);
   } else {
       return findDuplicate(arr, lowBound, midPoint);
