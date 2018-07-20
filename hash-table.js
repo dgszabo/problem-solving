@@ -13,7 +13,7 @@ class HashTable {
   }
 
   get(key) {
-      let val = this.table[0][key];
+      let val = this.table[hash(key, this.table.length)][key];
       return val;
   }
 }
