@@ -14,7 +14,6 @@ class HashTable {
 
   get(key) {
       let val = this.table[0][key];
-      console.log(val);
       return val;
   }
 }
