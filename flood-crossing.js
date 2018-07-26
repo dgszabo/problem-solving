@@ -1,4 +1,20 @@
-// HIGHEST FLOOD LEVEL 2D MATRIX PROBLEM
+// FLOOD CROSSING (HIGHEST FLOOD LEVEL) 2D MATRIX PROBLEM
+
+/*
+Given an N x M size 2D matrix (array of arrays) with integers at each position representing the height of the cell, devise a function that returns the highest flood level at which it's possible to cross from the left side of the matrix to the right side of the matrix. A larger or equal flood level renders the cell unusable for crossing (so you cannot use a 4 high cell at flood level 4 or higher). You can move up-down, sideways, and also diagonally.
+
+Example:
+[ [4,3,3,2,8],
+  [7,4,3,12,4],
+  [9,2,17,3,4],
+  [5,16,3,11,7] ] // Crossing possible until flood level 7
+// From left to right you can cross via 9 -> 16 -> 17 -> 12 -> 8 at flood level 7, but flood level 8 would render the last cell unusable.
+
+Hint: you can do this both recursively and iteratively (simulating a stack with an array). This can turn out to be many lines of code, so break it into multiple functions if necessary.
+
+Good luck!
+*/
+
 function highestFlood(matrix) {
   for(let i = 0; i < Infinity; i++) {
       if(!floodCrossingPossible(matrix, i)) {
