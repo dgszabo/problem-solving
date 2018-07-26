@@ -1,4 +1,22 @@
-// GET MAX HEIGHT PATH IN BINARY TREE PROBLEM
+// GET LONGEST BRANCH OF BINARY TREE PROBLEM
+/*
+You are given the root node of a regular binary tree. Your task is to find the longest branch of the tree and return the values of the nodes in it in an array.
+
+Example:
+    1
+   / \
+  2   4
+ /   / \
+3   5   6
+       /
+      7
+When given node1 (the root) of this tree, your function should return [1, 4, 6, 7], which are the values of the nodes in the longest branch of the tree.
+
+Hint: you'll have to write your own node constructor to be able to create the tree that you can test. When writing the getLongestBranch function, think of independent modular design. It's possible to tackle the problem in one swoop, but it's easier if you split it into smaller components.
+
+Good luck!
+*/
+
 class Node {
     constructor(val) {
         this.val = val;
