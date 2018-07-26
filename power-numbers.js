@@ -1,4 +1,13 @@
 // POWER NUMBERS PROBLEM
+
+/*
+A power number is an n > 1 number on the m > 1 power. So the 1st power number is 2^2, the second is 2^3 and the third is 3^2. Thus the list of the first power numbers is 4, 8, 9, 16, 25, 27, 36, and so on.
+
+Devise a function that takes an N > 1 integer and returns the Nth power number! This is a pretty complicated task, so don't worry about time and/or space complexity.
+
+Good luck!
+*/
+
 function powerNumber(n) {
   // edge case of smaller than 1 n
   if(n < 1) return -1;
