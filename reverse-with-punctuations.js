@@ -1,4 +1,14 @@
 // REVERSE WITH PUNCTUATIONS STRING MANIPULATION PROBLEM
+
+/*
+You get a sentence and you need to return the elements in reverse order. But some of the words will have either a comma or a period after them. Devise a function that reverses the words in the sentence, but keeps the punctuations in the same position (after the nth word) as they were in the original input string. For example, 'hello world.' should return 'world hello.' You can assume only one punctuation after each word and no invalid inputs.
+
+Test case:
+The 'hello world, this is, a great day.' input should return 'day great, a is, this world hello.'
+
+Good luck!
+*/
+
 function reverseWithPunctuation(str) {
   // create an array of the str and variables to keep track of punctuations
   let arr = str.split(' ');
