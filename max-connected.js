@@ -10,6 +10,10 @@ Example: (see also the pic below)
 The solution is 5, because color 2 cells at 2-1, 1-1, 1-2, 1-3, and 2-3 are the longest line of cells of the same color that are connected.
 
 Hint: we are looking for a recursive algorithm to find all the connected cells of the same color for any target cell and an iterative algorithm that iterates through all the cells of the matrix (so we don't miss any cell).
+
+Good luck!
+
+(AFTER YOU COMPLETED THE FUNCTION CHECK FOR A SECOND TASK BELOW!)
 */
 
 // recursive solution
@@ -60,7 +64,7 @@ function getConnectedFileds(matrix, position = [0,0], color = matrix[position[0]
 // ]);
 
 /*
-Uh-oh-au! We tried to run the code you wrote on Tuesday, but with certain inputs we encountered the following error: "RangeError: Maximum call stack size exceeded". This may be because our inputs were rather large 10,000 x 10,000 cell 2D matrices and recursion has an approx. 10-20 thousand iteration limit.
+Uh-oh-au! We tried to run the code above, but with certain inputs we encountered the following error: "RangeError: Maximum call stack size exceeded". This may be because our inputs were rather large 10,000 x 10,000 cell 2D matrices and recursion has an approx. 10-20 thousand iteration limit.
 
 Your task is to rewrite the same function iteratively, so that it would be able to handle our large inputs. (for more info on the original challenge, see Tuesday's post)
 
