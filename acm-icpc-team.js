@@ -1,5 +1,5 @@
 // ACM ISPS TEAM COMBINATORICS PROBLEM
-// HackerRank
+// HackerRank https://www.hackerrank.com/challenges/acm-icpc-team/problem
 function acmTeam(topic) {
     // mapping through the input array to create arrays of bits
     let newTopic = topic.map(el => el.split(''));
@@ -24,6 +24,6 @@ function acmTeam(topic) {
             }
         }
     }
-    
+
     return [max, count];
 }
