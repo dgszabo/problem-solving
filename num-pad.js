@@ -25,6 +25,7 @@ Hint: you can write the function in several ways, but the most straight forward 
 Good luck!
 */
 
+// helper method recursion solution
 function numPad(numStr, assocTable) {
   let results = [];
 
