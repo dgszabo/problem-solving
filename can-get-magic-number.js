@@ -2,7 +2,7 @@
 // Quick interview challenge
 
 /*
-You need to write the canGetMagicNumber function that takes a magic number (an integer) and an array of numbers (also integers). Your function needs to evaluate whether it is possible to put operators (+, -, *, /) between the numbers so as to get the magic number as the result after executing all the operations. The operations should be executed consequtively from left to right (* doesn't execute before + if + is on the left of *). Your function needs to use all the numbers in the array, but you can use the operators multiple times and can combine them in any order.
+You need to write the canGetMagicNumber function that takes a magic number (an integer) and an array of numbers (also integers). Your function needs to evaluate whether it is possible to put operators (+, -, *, /) between the numbers so as to get the magic number as the result of executing all the operations. The operations should be executed consecutively from left to right (* doesn't execute before + if + is on the left of *). Your function needs to use all the numbers in the array, but you can use the same operator multiple times and can combine them in any order.
 
 Examples:
 canGetMagicNumber(5, [4,2,2,4]) // true
@@ -12,8 +12,8 @@ canGetMagicNumber(5, [4,2,2,4]) // true
 // step 2: 1 + 4 = 5
 // Remember, the operations always have to be performed left to right!
 
-canGetMagicNumber(-1, [2,3]) // true
-// because 2 - 3 = -1
+canGetMagicNumber(-1, [1,1,3,1]) // true
+// because 1 + 1 - 3 * 1 = -1
 
 canGetMagicNumber(5, [1,12,4,5]) // false
 canGetMagicNumber(0, [1,2,4]) // false
