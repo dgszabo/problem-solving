@@ -1,5 +1,5 @@
 // BON APPETIT INPUT PARSING PROBLEM
-// HackerRank
+// HackerRank https://www.hackerrank.com/challenges/bon-appetit/problem
 function bonAppetit(inp) {
     let input = inp.split('\n')
     let even = input[1].split(' ').reduce((sum, a) => { return sum + +a }, 0) / 2;
