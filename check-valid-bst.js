@@ -1,12 +1,36 @@
 // CHECK VALID BST DATASTRUCTURE PROBLEM
 // Rithm School
+
+/*
+Your function should take the root node of a binary tree and return whether the binary tree is a valid binary search tree. You are also required to write your node constructor to be able to validate your tree. A binary tree is a tree each node of which has two children (which can be nodes or null). A binary search tree is a binary tree where each node's value is larger than the values of nodes on its left and smaller than the values of the nodes on its right.
+
+Examples:
+Valid BST:
+		 10
+	 /    \
+	5		   15
+ / \	  /  \
+1		7 13		30
+
+Invalid BST:
+		10
+	 /  \
+	5		 13
+ / 	  /
+2	   1
+
+Hint: The best strategy to tackle this challenge is to write a recursive function that checks if each element is within a certain range, based on it's parent elements and bubbles up the results to the first function call.
+
+Good luck!
+*/
+
 function checkValidBST(node, lowLim = -Infinity, highLim = Infinity) {
 	// done base case
 	if(!node) return true;
 
 	// false base case
 	if(node.val <= lowLim || node.val >= highLim) return false;
-	
+
 	// return t/f from the two nodes
 	return (
 		checkValidBST(node.left, lowLim, node.val) &&
